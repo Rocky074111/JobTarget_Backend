@@ -1,0 +1,114 @@
+[
+  {
+  "postings": [
+    {
+      "id": 132423,
+      "sitename": "Monster.com",
+      "duration": 30
+    },
+    {
+      "id": 132424,
+      "sitename": "Career Builder",
+      "duration": 30
+    },
+    {
+      "id": 132425,
+      "sitename": "USA Jobs",
+      "duration": 30
+    }
+  ],
+  "id": 123457,
+  "req_name": "Software Engineer",
+  "location": {
+    "city":"Philadelphia",
+    "state": "Pennsylvania",
+    "country":"United States"
+  },
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget diam libero. Fusce sodales sem tristique leo accumsan efficitur. Nam laoreet tristique magna in accumsan. In ex sapien, hendrerit vitae erat vitae, semper gravida velit. Fusce ut quam massa. Vestibulum ut est et lacus pretium bibendum. Suspendisse eget sollicitudin massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec ornare urna in lacus maximus ullamcorper id ut leo. Maecenas ac fringilla sem.",
+  "status": "Active"
+  },
+  {
+    "postings": [
+      {
+        "id": 132426,
+        "sitename": "Healthjobs.com",
+        "duration": 30
+      },
+      {
+        "id": 132427,
+        "sitename": "Nursing Jobs",
+        "duration": 30
+      },
+      {
+        "id": 132428,
+        "sitename": "USA Jobs",
+        "duration": 30
+      }
+    ],
+    "id": 123456,
+    "req_name": "Nurse Practitioner",
+    "location": {
+      "city":"San Diego",
+      "state": "California",
+      "country":"United States"
+    },
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget diam libero. Fusce sodales sem tristique leo accumsan efficitur. Nam laoreet tristique magna in accumsan. In ex sapien, hendrerit vitae erat vitae, semper gravida velit. Fusce ut quam massa. Vestibulum ut est et lacus pretium bibendum. Suspendisse eget sollicitudin massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec ornare urna in lacus maximus ullamcorper id ut leo. Maecenas ac fringilla sem.",
+    "status": "Inactive"
+  },
+  {
+    "postings": [
+      {
+        "id": 132429,
+        "sitename": "Monster.com",
+        "duration": 30
+      },
+      {
+        "id": 132430,
+        "sitename": "Career Builder",
+        "duration": 30
+      },
+      {
+        "id": 132431,
+        "sitename": "Indeed",
+        "duration": 30
+      }
+    ],
+    "id": 123458,
+    "req_name": "Truck Driver",
+    "location": {
+      "city":"Phoneix",
+      "state": "Arizona",
+      "country":"United States"
+    },
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget diam libero. Fusce sodales sem tristique leo accumsan efficitur. Nam laoreet tristique magna in accumsan. In ex sapien, hendrerit vitae erat vitae, semper gravida velit. Fusce ut quam massa. Vestibulum ut est et lacus pretium bibendum. Suspendisse eget sollicitudin massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec ornare urna in lacus maximus ullamcorper id ut leo. Maecenas ac fringilla sem.",
+    "status": "Inactive"
+  },
+  {
+    "postings": [
+      {
+        "id": 132432,
+        "sitename": "Techjobs.com",
+        "duration": 30
+      },
+      {
+        "id": 132433,
+        "sitename": "Dice.com",
+        "duration": 30
+      },
+      {
+        "id": 132434,
+        "sitename": "MBA Connection",
+        "duration": 30
+      }
+    ],
+    "id": 123459,
+    "req_name": "Project Manager",
+    "location": {
+      "city":"Orlando",
+      "state": "Florida",
+      "country":"United States"
+    },
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget diam libero. Fusce sodales sem tristique leo accumsan efficitur. Nam laoreet tristique magna in accumsan. In ex sapien, hendrerit vitae erat vitae, semper gravida velit. Fusce ut quam massa. Vestibulum ut est et lacus pretium bibendum. Suspendisse eget sollicitudin massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec ornare urna in lacus maximus ullamcorper id ut leo. Maecenas ac fringilla sem.",
+    "status": "Active"
+  }
+]
