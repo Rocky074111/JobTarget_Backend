@@ -1,4 +1,5 @@
 using api.Controllers;
+using api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,8 +15,9 @@ builder.Services.AddCors(options =>
               .AllowCredentials(); // If you need to allow cookies/credentials
     });
 });
+builder.Services.AddMemoryCache();
 builder.Services.AddControllers();
-
+builder.Services.AddTransient<IJobService, JobService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -51,6 +53,7 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast")
 .WithOpenApi();
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.Run();
 
