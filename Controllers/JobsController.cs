@@ -2,9 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using api.Models;
 using api.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Microsoft.Extensions.Caching.Memory;
+
 
 namespace api.Controllers
 {
@@ -15,9 +14,10 @@ namespace api.Controllers
     {
         // GET: api/job?page={pageNumber}&limit={pageSize}
         private readonly IJobService _jobService;
-
-        public JobsController(IJobService jobService)
+        private readonly IMemoryCache _cache;
+        public JobsController(IMemoryCache cache, IJobService jobService)
         {
+            _cache = cache;
             _jobService = jobService ?? throw new ArgumentNullException(nameof(jobService));
         }
 
@@ -26,7 +26,26 @@ namespace api.Controllers
         {
             try
             {
-                var jobs = _jobService.GetAllJobs();
+                if (!_cache.TryGetValue("jobs", out List<Job> jobs))
+                {
+                    var jobDTOs = _jobService.GetAllJobs();
+                    if (jobDTOs == null)
+                    {
+                        Console.WriteLine("Failed to deserialize JSON or JSON is empty.");
+                        return StatusCode(500, "Internal server error");
+                    }
+
+                    List<Job> temp_jobs = new List<Job>();
+                    foreach (var jobDTO in jobDTOs)
+                    {
+                        temp_jobs.Add(JobMapper.ToJob(jobDTO));
+                    }
+
+                    _cache.Set("jobs", temp_jobs, TimeSpan.FromMinutes(10));
+                    jobs = temp_jobs;
+
+                }
+
                 // Pagination logic
                 int totalJobs = jobs.Count();
                 var totalPages = (int)Math.Ceiling(totalJobs / (double)limit);
@@ -40,7 +59,7 @@ namespace api.Controllers
                     Jobs = pagedJobs
                 });
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e);
                 return StatusCode(500, "Internal server error");
@@ -53,8 +72,22 @@ namespace api.Controllers
         {
             try
             {
-                var job = _jobService.GetJobById(id);
-                if (job == null) return NotFound(new { Message = $"Job with ID {id} not found" });
+                if (!_cache.TryGetValue("jobs", out Job job))
+                {
+                    var jobDTO = _jobService.GetJobById(id);
+
+                    if (jobDTO == null)
+                    {
+                        Console.WriteLine("Failed to deserialize JSON or JSON is empty.");
+                        return NotFound(new { Message = $"Job with ID {id} not found" });
+                    }
+
+                    Job temp_job = JobMapper.ToJob(jobDTO);
+
+                    _cache.Set("specific_job", temp_job, TimeSpan.FromMinutes(10));
+                    job = temp_job;
+
+                }
 
                 return Ok(job);
             }
@@ -64,6 +97,6 @@ namespace api.Controllers
             }
         }
 
-        
+
     }
 }

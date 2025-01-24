@@ -15,7 +15,7 @@ public static class JobMapper
         };
     }
 
-    public static JobDTO TojobDTO(Job job)
+    public static JobDTO ToJobDTO(Job job)
     {
         return new JobDTO
         {
