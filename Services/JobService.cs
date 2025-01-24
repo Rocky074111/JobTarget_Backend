@@ -6,7 +6,7 @@ namespace api.Services
 {
     public interface IJobService
     {
-        List<JobDTO> GetAllJobs();
+        IEnumerable<JobDTO> GetAllJobs();
         JobDTO GetJobById(int id);
     }
 
@@ -22,7 +22,7 @@ namespace api.Services
             _repository = new JobRepository(_filePath);
         }
 
-        public List<JobDTO> GetAllJobs()
+        public IEnumerable<JobDTO> GetAllJobs()
         {
             try
             {

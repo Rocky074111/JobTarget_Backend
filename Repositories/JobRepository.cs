@@ -26,6 +26,7 @@ namespace api.Repository
             return JsonConvert.DeserializeObject<List<Job>>(jsonData);
         }
 
+
         public Job GetJobById(int id)
         {
             var jobs = GetAllJobs();
